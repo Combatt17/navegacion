@@ -5,12 +5,22 @@ import { AgregarPartidoComponent } from './agregar-partido/agregar-partido.compo
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaEquiposComponent } from './lista-equipos/lista-equipos.component';
 import { ListaPartidosComponent } from './lista-partidos/lista-partidos.component';
+import { EntrarComponent } from './usuario/entrar/entrar.component';
+import { RegistrarComponent } from './usuario/registrar/registrar.component';
 
 const routes: Routes = [
   {
     path:'',
-    component: InicioComponent,
+    component: EntrarComponent,
     pathMatch:'full'
+  },
+  {
+    path:'registrar',
+    component: RegistrarComponent,
+  },
+  {
+    path:'inicio',
+    component: InicioComponent,
   },
   {
     path:'listaequipo',

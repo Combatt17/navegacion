@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,9 @@ import { ListaEquiposComponent } from './lista-equipos/lista-equipos.component';
 import { ListaPartidosComponent } from './lista-partidos/lista-partidos.component';
 import { AgregarEquipoComponent } from './agregar-equipo/agregar-equipo.component';
 import { AgregarPartidoComponent } from './agregar-partido/agregar-partido.component';
+import { EntrarComponent } from './usuario/entrar/entrar.component';
+import { RegistrarComponent } from './usuario/registrar/registrar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { AgregarPartidoComponent } from './agregar-partido/agregar-partido.compo
     ListaEquiposComponent,
     ListaPartidosComponent,
     AgregarEquipoComponent,
-    AgregarPartidoComponent
+    AgregarPartidoComponent,
+    EntrarComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule, //Para utilizar el formulario reactivo (FormGroup)
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

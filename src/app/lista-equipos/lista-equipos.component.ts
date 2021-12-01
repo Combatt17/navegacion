@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipoService } from '../services/equipo.service';
 
 @Component({
   selector: 'app-lista-equipos',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaEquiposComponent implements OnInit {
 
-  constructor() { }
+  constructor(private equipoService: EquipoService) { }
 
   ngOnInit(): void {
+    this.traerEquipo()
   }
 
+  traerEquipo(){
+    this.equipoService.traerEquipos().subscribe(data =>{
+      console.log(data)
+    })
+  }
 }
