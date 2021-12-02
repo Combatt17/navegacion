@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http' // Cliente HTTP
+import { ReactiveFormsModule } from '@angular/forms'; // Formularios reactivos
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +13,6 @@ import { AgregarEquipoComponent } from './agregar-equipo/agregar-equipo.componen
 import { AgregarPartidoComponent } from './agregar-partido/agregar-partido.component';
 import { EntrarComponent } from './usuario/entrar/entrar.component';
 import { RegistrarComponent } from './usuario/registrar/registrar.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, //Para utilizar el formulario reactivo (FormGroup)
-    HttpClientModule
+    HttpClientModule //Para utilizar el HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

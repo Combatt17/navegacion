@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AgregarEquipoComponent } from './agregar-equipo/agregar-equipo.component';
 import { AgregarPartidoComponent } from './agregar-partido/agregar-partido.component';
+import { ValidarTokenGuard } from './guards/validar-token.guard';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaEquiposComponent } from './lista-equipos/lista-equipos.component';
 import { ListaPartidosComponent } from './lista-partidos/lista-partidos.component';
@@ -21,6 +22,8 @@ const routes: Routes = [
   {
     path:'inicio',
     component: InicioComponent,
+    canActivate: [ValidarTokenGuard],
+    canLoad: [ValidarTokenGuard]
   },
   {
     path:'listaequipo',

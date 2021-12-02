@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -13,20 +14,26 @@ export class EntrarComponent implements OnInit {
   loginForm!: FormGroup;
 
   //FB, para construir el formulario
-  constructor(private fb: FormBuilder, private serviceUsuario: UsuarioService) { }
+  constructor(private fb: FormBuilder, private serviceUsuario: UsuarioService, private router: Router) { }
 
   //Inicializar y contruir el fomulario
   ngOnInit(): void {
     this.loginForm=this.fb.group({
-      username:[''],
-      password: ['']
+      username:['',Validators.required],
+      password: ['',Validators.required]
     })
   }
 
   entrar(){
-    this.serviceUsuario.iniciarSesion(this.loginForm.value).subscribe(data => {
-      console.log(data)
-    })
+    console.log(this.loginForm)
+    if(this.loginForm.status=="VALID"){
+      this.serviceUsuario.iniciarSesion(this.loginForm.value).subscribe(data => {
+        this.router.navigateByUrl("inicio")
+      })
+    }else{
+      alert("Hay campos vacios")
+    }
+    
   }
 
 }
